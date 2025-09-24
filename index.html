@@ -4,15 +4,171 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Web Profil</title>
+  <style>
+    /* Reset dan variabel CSS */
+    :root {
+      --primary-color: #4f46e5;
+      --secondary-color: #10b981;
+      --accent-color: #f97316;
+      --dark-color: #1f2937;
+      --light-color: #f9fafb;
+      --text-color: #374151;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Header styling */
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+    
+    header p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--text-color);
+    }
+    
+    /* Navigation styling */
+    nav {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    nav li {
+      margin: 5px;
+    }
+    
+    nav a {
+      display: block;
+      padding: 12px 25px;
+      text-decoration: none;
+      color: white;
+      background-color: var(--primary-color);
+      border-radius: 8px;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    
+    nav a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Footer styling */
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      color: var(--text-color);
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      nav a {
+        width: 200px;
+        text-align: center;
+      }
+    }
+    
+    /* Animasi tambahan */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    header, nav {
+      animation: fadeIn 0.8s ease-out;
+    }
+  </style>
 </head>
 <body>
-    <h1>Selamat Datang di Web Profil Saya</h1>
-    <p>Ini adalah halaman utama dari web profil saya. Silakan jelajahi halaman-halaman lainnya untuk mengetahui lebih banyak tentang saya.</p>
+  <div class="container">
+    <header>
+      <h1>Selamat Datang di Web Profil Saya</h1>
+      <p>Ini adalah halaman utama dari web profil saya. Silakan jelajahi halaman-halaman lainnya untuk mengetahui lebih banyak tentang saya.</p>
+    </header>
+    
     <nav>
-        <ul>
-            <li><a href="profil.html">tugas 1</a></li>
-            <li><a href="course.html">tugas</a></li>
-            <li><a href="tes.html">tugas</a></li>
-        </ul>
-    </nav>  
+      <ul>
+        <li><a href="profil.html">Tugas 1</a></li>
+        <li><a href="course.html">Course</a></li>
+        <li><a href="tes.html">Tes</a></li>
+      </ul>
+    </nav>
+    
+    <footer>
+      <p>&copy; 2023 Web Profil. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
 </html>
