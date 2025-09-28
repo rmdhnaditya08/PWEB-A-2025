@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Tugas 5</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 20px 25px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      width: 400px;
+      margin: 20px auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      color: #444;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      background: #e9f7ef;
+      border: 1px solid #28a745;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Latihan 1 -->
+  <div class="container">
+    <h2>Latihan 1 - Form Registrasi Mahasiswa</h2>
+    <form id="regForm" onsubmit="return validateForm()">
+      <label>Nama Mahasiswa:</label>
+      <input list="namaList" id="nama" name="nama">
+      <datalist id="namaList">
+        <option value="Nuris Akbar">
+        <option value="Budi Santoso">
+        <option value="Ani Lestari">
+        <option value="Rizki Pratama">
+        <option value="Siti Aminah">
+      </datalist>
+
+      <label>NIM:</label>
+      <input type="text" id="nim" name="nim">
+
+      <label>Mata Kuliah:</label>
+      <input type="text" id="matkul" name="matkul">
+
+      <label>Dosen:</label>
+      <input type="text" id="dosen" name="dosen">
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Latihan 2 -->
+  <div class="container">
+    <h2>Latihan 2 - Pencarian Kode Pos</h2>
+
+    <label for="provinsi">Provinsi:</label>
+    <select id="provinsi" onchange="updateKota()">
+      <option value="">-- Pilih Provinsi --</option>
+      <option value="Jawa Timur">Jawa Timur</option>
+      <option value="Jawa Tengah">Jawa Tengah</option>
+    </select>
+
+    <label for="kota">Kabupaten/Kota:</label>
+    <select id="kota" onchange="updateKecamatan()">
+      <option value="">-- Pilih Kota/Kabupaten --</option>
+    </select>
+
+    <label for="kecamatan">Kecamatan:</label>
+    <select id="kecamatan">
+      <option value="">-- Pilih Kecamatan --</option>
+    </select>
+
+    <button onclick="cariKodePos()">Cari</button>
+
+    <div id="hasil" class="result"></div>
+  </div>
+
+  <!-- Latihan 3 -->
+  <div class="container">
+    <h2>Latihan 3 - List Drop Down</h2>
+    <label>Jurusan:</label>
+    <select id="jurusan" name="jurusan">
+      <option value="">-- Pilih Jurusan --</option>
+      <option value="Teknik Informatika">Teknik Informatika</option>
+      <option value="RPL">RPL</option>
+      <option value="RKA">RKA</option>
+    </select>
+  </div>
+
+  <script>
+    // Validasi form registrasi
+    function validateForm() {
+      const nama = document.getElementById("nama").value.trim();
+      const nim = document.getElementById("nim").value.trim();
+      const matkul = document.getElementById("matkul").value.trim();
+      const dosen = document.getElementById("dosen").value.trim();
+
+      if (nama === "" || nim === "" || matkul === "" || dosen === "") {
+        alert("⚠️ Semua field harus diisi!");
+        return false;
+      }
+      alert("✅ Registrasi berhasil!\n\nNama: " + nama + 
+            "\nNIM: " + nim + 
+            "\nMata Kuliah: " + matkul + 
+            "\nDosen: " + dosen);
+      return true;
+    }
+
+    // Data dummy kode pos
+    const dataKodePos = [
+      {provinsi: "Jawa Timur", kota: "Surabaya", kecamatan: "Sukolilo", kode: "60111", info: "Kelurahan Keputih, Kecamatan Sukolilo"},
+      {provinsi: "Jawa Timur", kota: "Surabaya", kecamatan: "Wonokromo", kode: "60241", info: "Kelurahan Darmo, Kecamatan Wonokromo"},
+      {provinsi: "Jawa Timur", kota: "Sidoarjo", kecamatan: "Candi", kode: "61271", info: "Kecamatan Candi, Kabupaten Sidoarjo"},
+      {provinsi: "Jawa Tengah", kota: "Semarang", kecamatan: "Tembalang", kode: "50275", info: "Kelurahan Tembalang, Kecamatan Tembalang"},
+    ];
+
+    // Struktur data untuk dropdown
+    const dataWilayah = {
+      "Jawa Timur": {
+        "Surabaya": ["Sukolilo", "Wonokromo"],
+        "Sidoarjo": ["Candi"]
+      },
+      "Jawa Tengah": {
+        "Semarang": ["Tembalang"]
+      }
+    };
+
+    function updateKota() {
+      const prov = document.getElementById("provinsi").value;
+      const kotaSelect = document.getElementById("kota");
+      const kecSelect = document.getElementById("kecamatan");
+
+      kotaSelect.innerHTML = '<option value="">-- Pilih Kota/Kabupaten --</option>';
+      kecSelect.innerHTML = '<option value="">-- Pilih Kecamatan --</option>';
+
+      if (prov && dataWilayah[prov]) {
+        Object.keys(dataWilayah[prov]).forEach(kota => {
+          kotaSelect.innerHTML += `<option value="${kota}">${kota}</option>`;
+        });
+      }
+    }
+
+    function updateKecamatan() {
+      const prov = document.getElementById("provinsi").value;
+      const kota = document.getElementById("kota").value;
+      const kecSelect = document.getElementById("kecamatan");
+
+      kecSelect.innerHTML = '<option value="">-- Pilih Kecamatan --</option>';
+
+      if (prov && kota && dataWilayah[prov][kota]) {
+        dataWilayah[prov][kota].forEach(kec => {
+          kecSelect.innerHTML += `<option value="${kec}">${kec}</option>`;
+        });
+      }
+    }
+
+    function cariKodePos() {
+      const prov = document.getElementById("provinsi").value;
+      const kota = document.getElementById("kota").value;
+      const kec = document.getElementById("kecamatan").value;
+      const hasil = document.getElementById("hasil");
+
+      if (prov === "" || kota === "" || kec === "") {
+        alert("⚠️ Harap pilih Provinsi, Kota, dan Kecamatan!");
+        return;
+      }
+
+      const ditemukan = dataKodePos.find(
+        d => d.provinsi === prov && d.kota === kota && d.kecamatan === kec
+      );
+
+      if (ditemukan) {
+        hasil.style.display = "block";
+        hasil.innerHTML = `<strong>Kode Pos:</strong> ${ditemukan.kode}<br><strong>Info:</strong> ${ditemukan.info}`;
+      } else {
+        hasil.style.display = "block";
+        hasil.innerHTML = "❌ Data kode pos tidak ditemukan!";
+      }
+    }
+  </script>
+</body>
+</html>
