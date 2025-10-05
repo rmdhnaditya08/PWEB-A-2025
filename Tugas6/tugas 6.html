@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tugas 6 - Login/Register</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="tugas6.css" />
+  
+  <style>
+    .card {
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .toggle-link {
+      cursor: pointer;
+      color: #0d6efd;
+    }
+    .toggle-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid ps-md-0">
+    <div class="row g-0">
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+      <div class="col-md-8 col-lg-6 d-flex align-items-center justify-content-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-8">
+              <div class="card p-4">
+                <h3 class="login-heading mb-4 text-center" id="form-title">Login</h3>
+
+                <!-- Login Form -->
+                <form id="loginForm">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required>
+                    <label for="loginEmail">Email address</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                    <label for="loginPassword">Password</label>
+                  </div>
+
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="rememberCheck">
+                    <label class="form-check-label" for="rememberCheck">Ingat saya</label>
+                  </div>
+
+                  <div class="d-grid mb-3">
+                    <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Login</button>
+                  </div>
+
+                  <div class="text-center">
+                    <small>Belum punya akun? <span class="toggle-link" onclick="toggleForm()">Daftar di sini</span></small>
+                  </div>
+                </form>
+
+                <!-- Register Form -->
+                <form id="registerForm" style="display:none;">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="regName" placeholder="Nama Lengkap" required>
+                    <label for="regName">Nama Lengkap</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="regEmail" placeholder="Email" required>
+                    <label for="regEmail">Email</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="regPassword" placeholder="Password" required>
+                    <label for="regPassword">Password</label>
+                  </div>
+
+                  <div class="d-grid mb-3">
+                    <button class="btn btn-success btn-login text-uppercase fw-bold" type="submit">Register</button>
+                  </div>
+
+                  <div class="text-center">
+                    <small>Sudah punya akun? <span class="toggle-link" onclick="toggleForm()">Login di sini</span></small>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="bootstrap.bundle.min.js"></script>
+
+  <script>
+    function toggleForm() {
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+      const title = document.getElementById('form-title');
+      if (loginForm.style.display === 'none') {
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+        title.innerText = 'Login';
+      } else {
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+        title.innerText = 'Register';
+      }
+    }
+  </script>
+</body>
+</html>
