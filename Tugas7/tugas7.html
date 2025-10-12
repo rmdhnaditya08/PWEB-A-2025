@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submit Form Without Page Refresh</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="container" style="max-width: 600px; margin-top: 50px;">
+    <h3 class="text-center">Demo Submit Form Without Page Refresh</h3>
+    <form id="ContactForm" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea class="form-control" id="message" name="message"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="message_box" style="margin-top:15px;"></div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#ContactForm').on('submit', function(e) {
+        e.preventDefault();
+
+        var name = $('#name').val().trim();
+        var email = $('#email').val().trim();
+        var message = $('#message').val().trim();
+
+        if (name === '') {
+            $('.message_box').html('<span style="color:red;">Enter Your Name!</span>');
+            $('#name').focus();
+            return false;
+        }
+
+        if (email === '') {
+            $('.message_box').html('<span style="color:red;">Enter Email Address!</span>');
+            $('#email').focus();
+            return false;
+        }
+
+        if (!isValidEmailAddress(email)) {
+            $('.message_box').html('<span style="color:red;">Provided email address is incorrect!</span>');
+            $('#email').focus();
+            return false;
+        }
+
+        if (message === '') {
+            $('.message_box').html('<span style="color:red;">Enter Your Message!</span>');
+            $('#message').focus();
+            return false;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "ajax.php",
+            data: { name: name, email: email, message: message },
+            beforeSend: function() {
+                $('.message_box').html('<img src="Loader.gif" width="25" height="25"/> Sending...');
+            },
+            success: function(data) {
+                $('.message_box').html(data);
+                $('#ContactForm')[0].reset();
+            },
+            error: function() {
+                $('.message_box').html('<span style="color:red;">An error occurred while sending.</span>');
+            }
+        });
+    });
+});
+
+// Email validation function
+function isValidEmailAddress(emailAddress) {
+    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(emailAddress);
+}
+</script>
+</body>
+</html>
