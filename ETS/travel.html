@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel</title>
+    <link rel="stylesheet" href="travel.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="travel.js" defer></script>
+</head>
+<body>
+    <header>
+            <div class="container header-container">
+            <div class="logo">
+                    <img src="logo.png" alt="Logo Buroq Travel">
+                    Buroq Travel
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#benefit">Benefit</a></li>
+                    <li><a href="#socialproof">Social Proof</a></li>
+                    <li><a href="#detailproduk">Detail Produk</a></li>
+                    <li><a href="#promo">Promo</a></li>
+                    <li><a href="#formulir">Formulir</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Liburan Asik Bareng Buroq Travel</h1>
+            <p>Solusi liburan asik, nyaman, dan menyenangkan bersama Buroq Travel. Tersedia jasa pengiriman barang. Dapatkan penawaran menarik untuk perjalanan impian Anda!</p>
+            <a href="#formulir" class="btn">Pesan Sekarang</a>
+        </div>
+    </section>
+
+    <section id="benefit" class="benefit">
+         <div class="container">
+        <h2>Kenapa Pilih Buroq Travel?</h2>
+        <ul>
+            <li>✅ Pemesanan mudah & cepat secara online</li>
+            <li>✅ Jaringan komunitas travel luas & terpercaya</li>
+            <li>✅ Layanan antar jemput penumpang & paket barang</li>
+            <li>✅ Armada nyaman, driver berpengalaman</li>
+            <li>✅ Harga transparan & banyak promo menarik</li>
+        </ul>
+    </div>
+
+    </section>
+
+    <section id="socialproof" class="social proof">
+        <div class="container">
+        <h2>Apa Kata Mereka?</h2>
+        <div class="testimonial">
+            <p>"Buroq Travel membuat liburan kami menjadi sangat menyenangkan dan tanpa stres. Layanan antar jemputnya sangat membantu!"</p>
+            <span>- Andi, Jakarta</span>
+        </div>
+        <div class="testimonial">
+            <p>"Harga yang ditawarkan sangat bersaing dan transparan. Saya merasa mendapatkan nilai lebih untuk perjalanan saya."</p>
+            <span>- Siti, Bandung</span>
+        </div>
+        <div class="testimonial">
+            <p>"Drivernya sangat profesional dan armadanya nyaman. Saya pasti
+
+    </section>
+
+    <section id="detailproduk" class="detail produk">
+        <div class="container">
+        <h2>Detail Produk & Layanan</h2>
+        <ul>
+            <li>🚌 Layanan travel antar kota dengan armada terbaru</li>
+            <li>📦 Jasa pengiriman barang cepat & aman</li>
+            <li>🚗 Layanan antar jemput bandara & stasiun</li>
+            <li>🌐 Pemesanan online 24/7 melalui website & aplikasi</li>
+            <li>🎟️ Promo menarik untuk pelanggan setia</li>
+        </ul>
+
+    </section>
+
+    <section id="promo" class="promo">
+        <div class="container">
+        <h2>Promo Spesial Bulan Ini!</h2>
+        <ul>
+            <li>Diskon 10% untuk pemesanan pertama via website</li>
+            <li>Gratis 1x pengiriman paket untuk 5x perjalanan</li>
+            <li>Voucher cashback untuk rute tertentu</li>
+        </ul>
+    </div>
+
+    </section>
+
+<section id="formulir" class="formulir">
+    <h2>Pesan Travel / Kirim Paket</h2>
+    <form>
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" name="nama" required>
+        
+        <label for="telepon">No. Telepon:</label>
+        <input type="tel" id="telepon" name="telepon" required>
+        
+        <label for="layanan">Jenis Layanan:</label>
+        <select id="layanan" name="layanan" required>
+            <option value="">-- Pilih Layanan --</option>
+            <option value="travel">Travel Antar Kota</option>
+            <option value="paket">Kirim Paket Barang</option>
+        </select>
+        
+        <label for="kotaasal">Kota Asal:</label>
+        <select id="kotaasal" name="kotaasal" required>
+            <option value="">-- Pilih Kota Asal --</option>
+            <option value="Surabaya">Surabaya</option>
+            <option value="Malang">Malang</option>
+            <option value="Solo">Solo</option>
+            <option value="Jakarta">Jakarta</option>
+            <option value="Bandung">Bandung</option>
+        </select>
+        
+        <label for="kotatujuan">Kota Tujuan:</label>
+        <select id="kotatujuan" name="kotatujuan" required>
+            <option value="">-- Pilih Kota Tujuan --</option>
+            <option value="Surabaya">Surabaya</option>
+            <option value="Malang">Malang</option>
+            <option value="Solo">Solo</option>
+            <option value="Jakarta">Jakarta</option>
+            <option value="Bandung">Bandung</option>
+        </select>
+        
+        <label for="catatan">Catatan (opsional):</label>
+        <textarea id="catatan" name="catatan"></textarea>
+        
+        <button type="submit" class="btn">Kirim Pesanan</button>
+    </form>
+</section>
+
+    <section id="faq" class="faq">
+        <h2>FAQ</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <h4>pertanyaan?</h4>
+                <p>jawaban</p>
+            </div>
+            <div class="faq-item">
+                <h4>pertanyaan?</h4>
+                <p>jawaban</p>
+            </div>
+            <div class="faq-item">
+                <h4>pertanyaan?</h4>
+                <p>jawaban</p>
+            </div>
+            <div class="faq-item">
+                <h4>pertanyaan?</h4>
+                <p>jawaban</p>
+            </div>
+        </div>
+    </div>
+
+    </section>
+</body>    
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Buroq Travel</h3>
+                <p>Kolaborasi komunitas travel & rental mobil daerah. Solusi perjalanan dan pengiriman barang antar kota yang aman, nyaman, dan terpercaya.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#detailproduk">Travel Antar Kota</a></li>
+                    <li><a href="#detailproduk">Kirim Paket Barang</a></li>
+                    <li><a href="#detailproduk">Rental Mobil</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Kontak</h4>
+                <p>Telepon: <a href="tel:081234567890">0812-3456-7890</a></p>
+                <p>Email: <a href="mailto:info@buroqtravel.com">info@buroqtravel.com</a></p>
+                <p>Alamat: Jl. Raya Utama No. 123, Surabaya</p>
+            </div>
+            <div class="footer-social">
+                <h4>Ikuti Kami</h4>
+                <ul>
+                    <li><a href="#" target="_blank">Instagram</a></li>
+                    <li><a href="#" target="_blank">Facebook</a></li>
+                    <li><a href="#" target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Buroq Travel. All rights reserved.
+        </div>
+    </footer>
+
+</html>
