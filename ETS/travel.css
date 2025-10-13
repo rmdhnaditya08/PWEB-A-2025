@@ -11,7 +11,7 @@ body {
     background-size: cover;
     color: #222;
     line-height: 1.6;
-    padding-top: 90px;
+ 
 }
 
 body::before {
@@ -85,13 +85,16 @@ body::before {
     padding: 32px 0;
 }
 
-
 header {
     background: #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     position: sticky;
     top: 0;
-    z-index: 10;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .header-container {
@@ -143,6 +146,7 @@ nav a:hover {
     text-align: center;
     padding: 80px 0 60px 0;
     position: relative;
+       padding-top: 90px;
 }
 
 
