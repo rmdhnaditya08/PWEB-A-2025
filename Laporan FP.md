@@ -6,7 +6,7 @@
 
 
 **JUDUL PROYEK:**
-Rancang Bangun Aplikasi Manajemen Tugas "StudyPlanner" Berbasis Web dengan Integrasi Google Calendar dan Notifikasi Otomatis
+Rancang Bangun Aplikasi Manajemen Tugas "WorkManage" Berbasis Web dengan Integrasi Login Google Serta Sistem Calendar sebagai Pengingat
 
 **TIM PENGEMBANG:**<br>
 **Ferdian Ardra Hafizhan (5025241___)** [Backend & Logic]<br>
